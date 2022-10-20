@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public class WebScraperRepository {
     public static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36";
-    public static final String BASE_URL = "https://google.com/search?q=";
+    public static final String BASE_URL = "https://google.com.br/search?q=";
     public List<DataModel> getData(String searchContent)  {
         List<String> titleList = new ArrayList();
         List<String> urlList = new ArrayList();
