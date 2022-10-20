@@ -8,9 +8,7 @@ import org.jsoup.nodes.Element;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Repository
 public class WebScraperRepository {
@@ -19,8 +17,8 @@ public class WebScraperRepository {
     public List<DataModel> getData(String searchContent)  {
         List<String> titleList = new ArrayList();
         List<String> urlList = new ArrayList();
-        Set<DataModel> dataModels = new HashSet<>();
-        List<DataModel> response = new ArrayList();
+        List<DataModel> dataModels = new ArrayList();
+
         final Document doc;
         try {
             doc = Jsoup.connect(BASE_URL.concat(searchContent)).userAgent(USER_AGENT).get();
@@ -40,24 +38,19 @@ public class WebScraperRepository {
 
         if(titleList.size() == urlList.size()) {
             for (Integer i = 0; i < titleList.size(); i++) {
-                DataModel dm = new DataModel(titleList.get(i), urlList.get(i));
-                dataModels.add(dm);
+                dataModels.add(new DataModel(titleList.get(i), urlList.get(i)));
             }
         }
         if(titleList.size() >= urlList.size()) {
             for (Integer i = 0; i < urlList.size(); i++) {
-                DataModel dm = new DataModel(titleList.get(i), urlList.get(i));
-                dataModels.add(dm);
+                dataModels.add(new DataModel(titleList.get(i), urlList.get(i)));
             }
         }
         if(titleList.size() <= urlList.size()) {
             for (Integer i = 0; i < titleList.size(); i++) {
-                DataModel dm = new DataModel(titleList.get(i), urlList.get(i));
-                dataModels.add(dm);
-
+                    dataModels.add(new DataModel(titleList.get(i), urlList.get(i)));
             }
         }
-        response.addAll(dataModels);
-        return response;
+        return dataModels;
     }
 }
