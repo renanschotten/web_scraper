@@ -1,0 +1,5 @@
+com/example/web_scraper/WebScraperApplication.class
+com/example/web_scraper/controller/WebScraperController.class
+com/example/web_scraper/model/DataModel.class
+com/example/web_scraper/service/WebScraperService.class
+com/example/web_scraper/repository/WebScraperRepository.class
